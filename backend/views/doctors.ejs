@@ -1,0 +1,26 @@
+<%- include('partials/header') %>
+<main class="container">
+  <h1>Our Medical Team</h1>
+  <div class="stats-grid">
+    <% doctors.forEach(doc => { %>
+    <div class="card doctor-card">
+      <div
+        class="avatar"
+        style="
+          background: #ddd;
+          width: 60px;
+          height: 60px;
+          border-radius: 50%;
+          margin-bottom: 10px;
+        "
+      ></div>
+      <h3>Dr. <%= doc.name %></h3>
+      <p style="color: var(--primary); font-weight: bold">
+        <%= doc.specialization %>
+      </p>
+      <small>ID: <%= doc.doctor_id %></small>
+    </div>
+    <% }) %>
+  </div>
+</main>
+<%- include('partials/footer') %>

@@ -1,0 +1,94 @@
+<%- include('partials/header') %>
+
+<main class="container">
+  <div class="page-header">
+    <h1>Appointment Scheduling</h1>
+    <button
+      class="btn-primary"
+      onclick="document.getElementById('appointmentModal').style.display='block'"
+    >
+      + Book New Appointment
+    </button>
+  </div>
+
+  <section class="card">
+    <table>
+      <thead>
+        <tr>
+          <th>Date & Time</th>
+          <th>Patient Name</th>
+          <th>Doctor</th>
+          <th>Reason</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% if (appointments && appointments.length > 0) { %> <%
+        appointments.forEach(app => { %>
+        <tr>
+          <td><%= new Date(app.appointment_date).toLocaleString() %></td>
+          <td><%= app.first_name %> <%= app.last_name %></td>
+          <td>Dr. <%= app.doctor_name %></td>
+          <td><%= app.reason %></td>
+          <td><span class="status-pill bg-success"><%= app.status %></span></td>
+        </tr>
+        <% }) %> <% } else { %>
+        <tr>
+          <td colspan="5">No appointments found.</td>
+        </tr>
+        <% } %>
+      </tbody>
+    </table>
+  </section>
+</main>
+
+<div
+  id="appointmentModal"
+  class="modal"
+  style="
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+  "
+>
+  <div
+    class="modal-content card"
+    style="margin: 10% auto; width: 400px; padding: 2rem"
+  >
+    <h2>Schedule Appointment</h2>
+    <form action="/appointments/add" method="POST">
+      <input
+        type="number"
+        name="patient_id"
+        placeholder="Patient ID"
+        required
+      /><br /><br />
+      <input
+        type="number"
+        name="doctor_id"
+        placeholder="Doctor ID"
+        required
+      /><br /><br />
+      <input
+        type="datetime-local"
+        name="appointment_date"
+        required
+      /><br /><br />
+      <textarea name="reason" placeholder="Reason for visit"></textarea
+      ><br /><br />
+      <button type="submit" class="btn-primary">Confirm Booking</button>
+      <button
+        type="button"
+        onclick="document.getElementById('appointmentModal').style.display='none'"
+      >
+        Cancel
+      </button>
+    </form>
+  </div>
+</div>
+
+<%- include('partials/footer') %>

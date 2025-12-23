@@ -1,0 +1,28 @@
+/* --- Add these to your style.css to match Bootstrap --- */
+:root {
+  --primary: #0d6efd; /* Match Bootstrap Blue */
+  --background: #f8f9fa;
+}
+
+body {
+  background-color: var(--background);
+  font-family: "Inter", sans-serif;
+}
+
+/* Make Bootstrap cards look like your hospital cards */
+.card {
+  border: none;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+/* Fix table scrolling on phones */
+.table-responsive {
+  border-radius: 12px;
+  overflow: hidden;
+}

@@ -1,0 +1,141 @@
+<%- include('partials/header') %>
+
+<main class="container">
+  <div class="page-header">
+    <h1>Patient Management</h1>
+    <button class="btn btn-primary" onclick="openModal()">
+      + Register New Patient
+    </button>
+  </div>
+
+  <div class="card" style="margin-bottom: 2rem">
+    <input
+      type="text"
+      id="patientSearch"
+      placeholder="Search by name, email, or patient ID..."
+      onkeyup="filterPatients()"
+    />
+  </div>
+
+  <section class="card table-container">
+    <table id="patientsTable">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Full Name</th>
+          <th>Contact Info</th>
+          <th>Gender</th>
+          <th>DOB</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% if (patients && patients.length > 0) { %> <% patients.forEach(p => {
+        %>
+        <tr>
+          <td><strong>#<%= p.patient_id %></strong></td>
+          <td><%= p.first_name %> <%= p.last_name %></td>
+          <td>
+            <div><%= p.email %></div>
+            <small style="color: var(--secondary)"><%= p.phone %></small>
+          </td>
+          <td><span class="status-pill bg-primary"><%= p.gender %></span></td>
+          <td><%= new Date(p.dob).toLocaleDateString() %></td>
+          <td>
+            <button
+              class="btn btn-secondary"
+              style="padding: 0.3rem 0.6rem; font-size: 0.8rem"
+            >
+              View History
+            </button>
+          </td>
+        </tr>
+        <% }) %> <% } else { %>
+        <tr>
+          <td colspan="6" style="text-align: center">
+            No patients registered yet.
+          </td>
+        </tr>
+        <% } %>
+      </tbody>
+    </table>
+  </section>
+</main>
+
+<div id="patientModal" class="modal-overlay" style="display: none">
+  <div class="modal-content card">
+    <div class="page-header">
+      <h2>Register New Patient</h2>
+      <button
+        class="btn"
+        onclick="closeModal()"
+        style="background: none; font-size: 1.5rem"
+      >
+        &times;
+      </button>
+    </div>
+
+    <form action="/patients/add" method="POST">
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem">
+        <div>
+          <label>First Name</label>
+          <input type="text" name="first_name" required placeholder="John" />
+        </div>
+        <div>
+          <label>Last Name</label>
+          <input type="text" name="last_name" required placeholder="Doe" />
+        </div>
+      </div>
+
+      <label>Email Address</label>
+      <input
+        type="email"
+        name="email"
+        required
+        placeholder="john.doe@example.com"
+      />
+
+      <label>Phone Number (10 Digits)</label>
+      <input
+        type="tel"
+        name="phone"
+        pattern="[0-9]{10}"
+        required
+        placeholder="9876543210"
+      />
+
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem">
+        <div>
+          <label>Date of Birth</label>
+          <input type="date" name="dob" required />
+        </div>
+        <div>
+          <label>Gender</label>
+          <select name="gender" required>
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+            <option value="Other">Other</option>
+          </select>
+        </div>
+      </div>
+
+      <div
+        style="
+          margin-top: 1.5rem;
+          display: flex;
+          gap: 1rem;
+          justify-content: flex-end;
+        "
+      >
+        <button type="button" class="btn btn-secondary" onclick="closeModal()">
+          Cancel
+        </button>
+        <button type="submit" class="btn btn-primary">
+          Save Patient Record
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<%- include('partials/footer') %>

@@ -1,0 +1,73 @@
+<%- include('partials/header') %>
+
+<main class="container">
+  <h1>Hospital Overview</h1>
+
+  <div class="stats-grid">
+    <div class="card">
+      <h3>Total Patients</h3>
+      <p><%= stats.totalPatients %></p>
+    </div>
+    <div class="card" style="border-left: 4px solid var(--primary)">
+      <h3>Doctors</h3>
+      <p><%= stats.totalDoctors %></p>
+    </div>
+    <div class="card" style="border-left: 4px solid var(--success)">
+      <h3>Today's Appointments</h3>
+      <p><%= stats.todayAppointments %></p>
+    </div>
+    <div class="card" style="border-left: 4px solid var(--danger)">
+      <h3>Unpaid Bills</h3>
+      <p><%= stats.unpaidBills %></p>
+    </div>
+  </div>
+
+  <div class="card" style="margin-bottom: 2rem; height: 300px">
+    <h2>Monthly Revenue</h2>
+    <canvas id="revenueChart"></canvas>
+  </div>
+
+  <section class="card table-container">
+    <h2>Today's Schedule</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Patient</th>
+          <th>Doctor</th>
+          <th>Time</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody id="appointment-list">
+        <% if (todayList && todayList.length > 0) { %> <%
+        todayList.forEach(function(app) { %>
+        <tr>
+          <td><%= app.first_name %></td>
+          <td>Dr. <%= app.doc_fname %> <%= app.doc_lname %></td>
+          <td>
+            <%= new Date(app.appointment_date).toLocaleTimeString([], {hour:
+            '2-digit', minute:'2-digit'}) %>
+          </td>
+          <td><span class="status-pill bg-primary"><%= app.status %></span></td>
+        </tr>
+        <% }); %> <% } else { %>
+        <tr>
+          <td
+            colspan="4"
+            style="text-align: center; padding: 2rem; color: var(--secondary)"
+          >
+            No appointments scheduled today.
+          </td>
+        </tr>
+        <% } %>
+      </tbody>
+    </table>
+  </section>
+</main>
+
+<script>
+  const revenueData = <%- JSON.stringify(revenueData) %>;
+</script>
+
+<%- include('partials/footer') %>
+<script src="/js/dashboard.js"></script>
