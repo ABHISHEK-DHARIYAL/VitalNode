@@ -1,78 +1,66 @@
-🏥 VitalNode - Hospital Management System
-VitalNode is a robust, full-stack hospital management application designed to streamline healthcare operations. It features a comprehensive dashboard for real-time tracking, relational data management for patients and doctors, and advanced analytics for medical equipment monitoring.
+# 🏥 VitalNode - Hospital Management System
 
-🚀 Features
-📊 Comprehensive Dashboard
-Real-time KPIs: View total patients, active doctors, today's appointments, and pending bills at a glance.
+**VitalNode** is a robust, full-stack hospital management application designed to streamline healthcare operations. It features a comprehensive dashboard for real-time tracking, relational data management for patients and doctors, and advanced analytics for medical equipment monitoring.
 
-Dynamic Schedule: Automatically fetches and displays appointments specifically for the current date (CURDATE()).
+---
 
-Revenue Tracking: Integrated bar charts showing monthly income trends.
+## 🚀 Key Features
 
-🏥 Patient & Doctor Management
-Centralized Registry: Full CRUD-ready structure for patient records.
+### 📊 Comprehensive Dashboard
+* **Real-time KPIs:** View total patients, active doctors, today's appointments, and pending bills at a glance.
+* **Dynamic Schedule:** Automatically fetches and displays appointments specifically for the current date using `CURDATE()`.
+* **Revenue Tracking:** Integrated bar charts showing monthly income trends via Chart.js.
 
-Medical Team Directory: Categorized view of doctors by specialization.
+### 🏥 Patient & Doctor Management
+* **Centralized Registry:** Full CRUD-ready structure for managing patient records efficiently.
+* **Medical Team Directory:** Categorized view of doctors organized by their specific specializations.
+* **Search & Filter:** Optimized frontend JavaScript filtering for instant record lookup without page reloads.
 
-Search & Filter: Frontend JavaScript filtering for instant record lookup without page reloads.
+### 📅 Appointment System
+* **Relational Data:** Leverages SQL Joins to seamlessly connect Patients, Doctors, and Appointment slots.
+* **Status Monitoring:** Track the lifecycle of appointments through *Scheduled*, *Completed*, or *Cancelled* states.
 
-📅 Appointment System
-Relational Data: Uses SQL Joins to connect Patients, Doctors, and Appointment slots.
+### 📈 Advanced Analytics
+* **Device Monitoring:** Track the status, maintenance history, and usage levels of critical hospital machinery (e.g., MRI, Ventilators).
+* **Interactive Charts:** Data-driven insights powered by **Chart.js** with asynchronous data fetching from dedicated API endpoints.
 
-Status Monitoring: Track appointments through Scheduled, Completed, or Cancelled states.
+---
 
-📈 Advanced Analytics
-Device Monitoring: Track the status, maintenance history, and usage levels of critical hospital machinery (MRI, Ventilators, etc.).
+## 🛠️ Tech Stack
 
-Interactive Charts: Powered by Chart.js with asynchronous data fetching from a dedicated API endpoint.
+| Layer | Technology |
+| :--- | :--- |
+| **Frontend** | HTML5, CSS3, JavaScript (ES6+), Bootstrap 5 |
+| **Backend** | Node.js, Express.js |
+| **Database** | MySQL (Relational Management) |
+| **Visualization** | Chart.js |
 
-🗄️ Database Schema (DBMS Highlights)
-The project utilizes a relational structure to ensure data integrity.
+---
 
-Key Tables:
+## 🗄️ Database Schema Highlights
 
-patients: Stores demographic and contact information.
+The project utilizes a highly structured relational database to ensure data integrity across the following key tables:
 
-doctors: Managed by specialization and availability.
+* **`patients`**: Stores demographic and contact information.
+* **`doctors`**: Managed by specialization and availability.
+* **`appointments`**: A bridge table linking patients and doctors with timestamps.
+* **`billing`**: Tracks financial transactions and payment statuses.
+* **`hospital_devices`**: Metadata for medical equipment maintenance tracking.
 
-appointments: A bridge table linking patients and doctors with timestamps.
+---
 
-billing: Tracks financial transactions and payment statuses.
+## 📱 Mobile Responsiveness
 
-hospital_devices: Metadata for medical equipment maintenance tracking.
+VitalNode is fully responsive and optimized for both Android and iOS devices:
+* **Bootstrap 5:** Utilizes a fluid grid system for all screen sizes.
+* **Custom Media Queries:** Optimized for table horizontal scrolling and touch-friendly buttons.
+* **Accessibility:** Features a sticky navigation bar with a mobile hamburger menu.
 
-📱 Mobile Responsiveness
-VitalNode is fully responsive and tested for Android and iOS devices:
+---
 
-Bootstrap 5: Utilizes a fluid grid system.
+## 🔧 Installation & Setup
 
-Custom Media Queries: Optimized for table horizontal scrolling and touch-friendly buttons.
-
-Accessibility: Sticky navigation with a mobile hamburger menu for small-screen access.
-
-🔧 Installation & Setup
-
-1. Clone the repository
-   Bash
-
-git clone (https://github.com/ABHISHEK-DHARIYAL/VitalNode.git)
-cd VitalNode/backend 2. Install dependencies
-Bash
-
-npm install 3. Database Configuration
-Create a MySQL database.
-
-Run the provided SQL initialization scripts to set up the tables.
-
-Create a .env file in the backend directory and add your credentials:
-
-Code snippet
-
-DB_HOST=localhost
-DB_USER=your_username
-DB_PASSWORD=your_password
-DB_NAME=vitalnode_db 4. Start the server
-Bash
-
-npm run dev
-The application will be accessible at: http://localhost:3000
+### 1. Clone the repository
+```bash
+git clone [https://github.com/ABHISHEK-DHARIYAL/VitalNode.git](https://github.com/ABHISHEK-DHARIYAL/VitalNode.git)
+cd VitalNode/backend
