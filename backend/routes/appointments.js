@@ -7,14 +7,27 @@ const appointmentController = require("../controllers/appointmentController");
 router.get("/", async (req, res) => {
   try {
     const [rows] = await db.query(`
-            SELECT a.*, p.first_name, p.last_name, d.name as doctor_name 
-            FROM appointments a
-            JOIN patients p ON a.patient_id = p.patient_id
-            JOIN doctors d ON a.doctor_id = d.doctor_id
-            ORDER BY a.appointment_date DESC
-        `);
+      SELECT 
+        a.appointment_id,
+        a.appointment_date,
+        a.reason,
+        a.status,
+
+        p.first_name AS patient_fname,
+        p.last_name  AS patient_lname,
+
+        d.first_name AS doctor_fname,
+        d.last_name  AS doctor_lname
+
+      FROM appointments a
+      JOIN patients p ON a.patient_id = p.patient_id
+      JOIN doctors d ON a.doctor_id = d.doctor_id
+      ORDER BY a.appointment_date DESC
+    `);
+
     res.render("appointments", { appointments: rows });
   } catch (err) {
+    console.error(err);
     res.status(500).send("Error loading appointments");
   }
 });

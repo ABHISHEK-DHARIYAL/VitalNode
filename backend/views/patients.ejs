@@ -44,6 +44,7 @@
           <td>
             <button
               class="btn btn-secondary"
+              onclick="viewHistory(<%= p.patient_id %>)"
               style="padding: 0.3rem 0.6rem; font-size: 0.8rem"
             >
               View History
@@ -137,5 +138,7 @@
     </form>
   </div>
 </div>
+
+<script src="/js/patients.js"></script>
 
 <%- include('partials/footer') %>

@@ -1,0 +1,177 @@
+/* =========================
+   DASHBOARD LAYOUT
+========================= */
+
+main.container {
+  padding-top: 1.5rem;
+  padding-bottom: 2rem;
+}
+
+/* Page title */
+main h1 {
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: var(--gray-900);
+  margin-bottom: 1.5rem;
+}
+
+/* =========================
+   STATS GRID
+========================= */
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.2rem;
+  margin-bottom: 2rem;
+}
+
+/* Stat card */
+.stats-grid .card {
+  padding: 1.25rem 1.4rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* Stat title */
+.stats-grid h3 {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--gray-500);
+  margin-bottom: 0.4rem;
+}
+
+/* Stat number */
+.stats-grid p {
+  font-size: 1.9rem;
+  font-weight: 800;
+  color: var(--gray-900);
+  margin: 0;
+}
+
+/* Accent borders */
+.card.primary {
+  border-left: 4px solid #2563eb;
+}
+
+.card.success {
+  border-left: 4px solid #16a34a;
+}
+
+.card.danger {
+  border-left: 4px solid #dc2626;
+}
+
+/* =========================
+   CHART CARD
+========================= */
+
+.card canvas {
+  max-height: 220px;
+}
+
+.card h2 {
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: var(--gray-900);
+}
+
+/* =========================
+   TABLE SECTION
+========================= */
+
+.table-container {
+  padding: 1.2rem 1.4rem;
+}
+
+.table-container h2 {
+  font-size: 1.15rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+/* Table reset */
+.table-container table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table-container thead th {
+  text-align: left;
+  padding: 0.75rem 0.6rem;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  color: var(--gray-500);
+  border-bottom: 1px solid var(--gray-200);
+}
+
+.table-container tbody td {
+  padding: 0.85rem 0.6rem;
+  border-bottom: 1px solid var(--gray-200);
+  color: var(--gray-700);
+  font-size: 0.95rem;
+}
+
+.table-container tbody tr:hover {
+  background-color: var(--hover-bg);
+}
+
+/* =========================
+   STATUS PILLS
+========================= */
+
+.status-pill {
+  display: inline-block;
+  padding: 0.25rem 0.65rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  border-radius: 999px;
+  color: #ffffff;
+}
+
+/* Bootstrap-like colors but controlled */
+.status-pill.bg-primary {
+  background-color: #2563eb;
+}
+
+.status-pill.bg-success {
+  background-color: #16a34a;
+}
+
+.status-pill.bg-warning {
+  background-color: #f59e0b;
+}
+
+.status-pill.bg-danger {
+  background-color: #dc2626;
+}
+
+/* =========================
+   EMPTY TABLE STATE
+========================= */
+
+.table-container td[colspan] {
+  font-style: italic;
+  color: var(--gray-500);
+}
+
+.empty-state-cell {
+  text-align: center;
+  padding: 2rem;
+  color: #cbd5f5; /* visible light text */
+  font-weight: 500;
+  background: linear-gradient(
+    135deg,
+    rgba(59, 130, 246, 0.08),
+    rgba(15, 23, 42, 0.9)
+  );
+}
+
+.chart-title {
+  text-align: center;
+  font-weight: 700;
+  color: var(--gray-900);
+  margin-bottom: 1rem;
+}

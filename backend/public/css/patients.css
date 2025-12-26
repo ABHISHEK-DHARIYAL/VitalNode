@@ -1,0 +1,380 @@
+/* =========================
+   PATIENTS PAGE
+========================= */
+
+/* Page header */
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.page-header h1 {
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: var(--gray-900);
+}
+
+/* Primary action button */
+.page-header .btn-primary {
+  background-color: var(--brand-blue);
+  border: none;
+  font-weight: 600;
+  padding: 0.55rem 1.1rem;
+  border-radius: 10px;
+}
+
+.page-header .btn-primary:hover {
+  background-color: #2563eb;
+}
+
+/* =========================
+   SEARCH BAR
+========================= */
+
+#patientSearch {
+  width: 100%;
+  padding: 0.7rem 0.9rem;
+  border-radius: 10px;
+  border: 1px solid var(--border-light);
+  background-color: #020617;
+  color: var(--gray-600);
+  font-size: 0.95rem;
+}
+
+#patientSearch::placeholder {
+  color: var(--gray-500);
+}
+
+#patientSearch:focus {
+  outline: none;
+  border-color: var(--brand-blue);
+  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.25);
+}
+
+/* =========================
+   TABLE
+========================= */
+
+.table-container {
+  padding: 1rem 1.2rem;
+}
+
+#patientsTable {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+#patientsTable thead th {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--gray-500);
+  text-align: left;
+  padding: 0.8rem 0.6rem;
+  border-bottom: 1px solid var(--border-light);
+}
+
+#patientsTable tbody td {
+  padding: 0.9rem 0.6rem;
+  font-size: 0.95rem;
+  color: var(--gray-600);
+  border-bottom: 1px solid var(--border-light);
+  vertical-align: middle;
+}
+
+#patientsTable tbody tr:hover {
+  background-color: var(--hover-bg);
+}
+
+/* ID column */
+#patientsTable td strong {
+  color: var(--gray-900);
+}
+
+/* Email + phone */
+#patientsTable small {
+  font-size: 0.8rem;
+  color: var(--gray-500);
+}
+
+/* =========================
+   STATUS PILLS
+========================= */
+
+.status-pill {
+  display: inline-block;
+  padding: 0.25rem 0.65rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  border-radius: 999px;
+  color: #ffffff;
+}
+
+.status-pill.bg-primary {
+  background-color: var(--brand-blue);
+}
+
+/* =========================
+   ACTION BUTTONS
+========================= */
+
+.btn-secondary {
+  background-color: #020617;
+  border: 1px solid var(--border-light);
+  color: var(--gray-600);
+  border-radius: 8px;
+}
+
+.btn-secondary:hover {
+  background-color: var(--hover-bg);
+  color: var(--gray-900);
+}
+
+/* =========================
+   MODAL
+========================= */
+
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(2, 6, 23, 0.75);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.modal-content {
+  width: 100%;
+  max-width: 600px;
+  padding: 1.6rem 1.8rem;
+}
+
+/* Modal header */
+.modal-content .page-header h2 {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--gray-900);
+}
+
+/* =========================
+   FORMS
+========================= */
+
+form label {
+  display: block;
+  margin-top: 0.8rem;
+  margin-bottom: 0.3rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--gray-500);
+}
+
+form input,
+form select {
+  width: 100%;
+  padding: 0.6rem 0.7rem;
+  border-radius: 8px;
+  border: 1px solid var(--border-light);
+  background-color: #020617;
+  color: var(--gray-600);
+  font-size: 0.95rem;
+}
+
+form input::placeholder {
+  color: var(--gray-500);
+}
+
+form input:focus,
+form select:focus {
+  outline: none;
+  border-color: var(--brand-blue);
+  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.25);
+}
+
+/* Modal buttons */
+.modal-content .btn-primary {
+  background-color: var(--brand-blue);
+  border: none;
+}
+
+.modal-content .btn-primary:hover {
+  background-color: #2563eb;
+}
+
+/* =========================
+   PATIENT HISTORY PAGE
+========================= */
+
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.page-header h1 {
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: var(--gray-900);
+}
+
+.page-header a {
+  font-size: 0.85rem;
+}
+
+.status-pill {
+  padding: 0.25rem 0.65rem;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+/* =========================
+   EMPTY STATE (PATIENT HISTORY)
+========================= */
+
+.empty-state {
+  padding: 2.5rem 2rem;
+  text-align: center;
+  font-size: 1rem;
+  font-weight: 500;
+  color: #cbd5f5; /* light bluish gray (very visible) */
+  background: linear-gradient(
+    135deg,
+    rgba(59, 130, 246, 0.08),
+    rgba(15, 23, 42, 0.9)
+  );
+  border: 1px dashed rgba(59, 130, 246, 0.4);
+  border-radius: 14px;
+}
+
+/* =========================
+   MOBILE READABILITY FIX
+   (Android + iOS)
+========================= */
+
+/* Improve font rendering on mobile */
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+/* Base font sizing (mobile-first) */
+html {
+  font-size: 16px; /* prevents iOS zoom */
+}
+
+@media (max-width: 768px) {
+  body {
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+}
+
+/* Headings visibility */
+h1,
+h2,
+h3,
+h4,
+h5 {
+  color: #e5e7eb; /* brighter text */
+  line-height: 1.3;
+}
+
+/* Page titles */
+.page-header h1 {
+  font-size: 1.4rem;
+}
+
+@media (min-width: 768px) {
+  .page-header h1 {
+    font-size: 1.8rem;
+  }
+}
+
+/* Table text clarity */
+table td,
+table th {
+  font-size: 0.9rem;
+  color: #e5e7eb;
+}
+
+/* Table headers */
+#patientsTable thead th {
+  color: #c7d2fe;
+}
+
+/* Small text (emails, phone, IDs) */
+small,
+.doctor-id,
+#patientsTable small {
+  color: #cbd5f5;
+  font-size: 0.8rem;
+}
+
+/* Inputs & selects (IMPORTANT FOR iOS) */
+input,
+select,
+textarea,
+button {
+  font-size: 16px; /* stops iOS auto-zoom */
+}
+
+/* Input text visibility */
+form input,
+form select,
+#patientSearch {
+  color: #f1f5f9;
+}
+
+/* Placeholder visibility */
+input::placeholder,
+textarea::placeholder {
+  color: #94a3b8;
+}
+
+/* Buttons – better touch & contrast */
+button,
+.btn,
+.btn-primary,
+.btn-secondary {
+  min-height: 42px;
+  padding: 0.6rem 1rem;
+  font-weight: 600;
+}
+
+/* Status pills readable on OLED screens */
+.status-pill {
+  font-size: 0.75rem;
+  letter-spacing: 0.02em;
+}
+
+/* Empty states – very visible */
+.empty-state,
+.empty-state-cell {
+  color: #e0e7ff;
+  font-size: 0.95rem;
+}
+
+/* Modal readability on mobile */
+@media (max-width: 600px) {
+  .modal-content {
+    width: 92%;
+    padding: 1.2rem;
+  }
+
+  form label {
+    font-size: 0.8rem;
+  }
+}
+
+/* Improve tap spacing in tables */
+@media (max-width: 768px) {
+  table td {
+    padding: 0.8rem 0.5rem;
+  }
+}

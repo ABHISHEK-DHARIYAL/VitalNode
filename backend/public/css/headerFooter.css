@@ -1,0 +1,110 @@
+/* =========================
+   VITALNODE HEADER
+========================= */
+
+.vn-header {
+  background-color: var(--bg-white);
+  border-bottom: 1px solid var(--border-light);
+}
+
+/* =========================
+   BRAND (VitalNode)
+========================= */
+
+.vn-brand {
+  font-size: 1.4rem;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+  color: #3b82f6 !important; /* brand blue */
+  text-decoration: none;
+}
+
+.vn-brand:hover {
+  color: #2563eb !important; /* darker blue on hover */
+}
+
+/* Nav list */
+.vn-nav {
+  align-items: center;
+}
+
+/* Links */
+.vn-link {
+  color: var(--gray-700);
+  padding: 0.55rem 0.95rem;
+  border-radius: 8px;
+  font-weight: 600;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.vn-link:hover {
+  background-color: var(--hover-bg);
+  color: #2563eb;
+}
+
+/* Active */
+.vn-link.is-active {
+  background-color: #e0e7ff;
+  color: #2563eb;
+}
+
+/* =========================
+   NAVBAR TOGGLER (DARK THEME)
+========================= */
+
+.vn-toggler {
+  border: none;
+}
+
+/* Remove focus ring */
+.vn-toggler:focus {
+  box-shadow: none;
+}
+
+/* Change hamburger color */
+.vn-header .navbar-toggler-icon {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(229,231,235,1)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+.main-footer {
+  margin-top: 3rem;
+  padding: 1.2rem 0;
+
+  background: linear-gradient(
+    180deg,
+    rgba(15, 23, 42, 0.95),
+    rgba(2, 6, 23, 0.95)
+  );
+
+  border-top: 1px solid rgba(59, 130, 246, 0.25);
+}
+
+.main-footer .container {
+  text-align: center;
+}
+
+/* Footer text */
+.main-footer p {
+  margin: 0;
+
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.4px;
+
+  color: #cbd5f5; /* light readable text */
+}
+
+/* Optional hover glow if links added later */
+.main-footer a {
+  color: #93c5fd;
+  text-decoration: none;
+}
+
+.main-footer a:hover {
+  color: #bfdbfe;
+  text-decoration: underline;
+}

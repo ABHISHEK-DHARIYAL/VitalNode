@@ -1,0 +1,44 @@
+<%- include('partials/header') %>
+
+<main class="container">
+  <div class="page-header">
+    <div>
+      <h1>Dr. <%= doctor.first_name %> <%= doctor.last_name %></h1>
+      <p class="text-muted"><%= doctor.specialization %></p>
+    </div>
+    <a href="/doctors" class="btn btn-secondary">← Back</a>
+  </div>
+
+  <div class="card doctor-patient" style="margin-bottom: 1.5rem">
+    <h3>Patients (<%= patients.length %>)</h3>
+  </div>
+
+  <% if (patients.length > 0) { %>
+  <section class="card table-container">
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Patient Name</th>
+          <th>Phone</th>
+          <th>Last Visit</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% patients.forEach(p => { %>
+        <tr>
+          <td>#<%= p.patient_id %></td>
+          <td><%= p.first_name %> <%= p.last_name %></td>
+          <td><%= p.phone || "—" %></td>
+          <td><%= new Date(p.last_visit).toLocaleDateString() %></td>
+        </tr>
+        <% }) %>
+      </tbody>
+    </table>
+  </section>
+  <% } else { %>
+  <div class="card empty-state">No patients assigned to this doctor yet.</div>
+  <% } %>
+</main>
+
+<%- include('partials/footer') %>

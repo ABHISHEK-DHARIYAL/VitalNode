@@ -81,66 +81,8 @@
   </div>
 </main>
 
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
 
-<script>
-  async function loadCharts() {
-    try {
-      const response = await fetch("/analytics/data");
-      const data = await response.json();
-
-      if (!data || data.length === 0) {
-        console.warn("No chart data received");
-        return;
-      }
-
-      const ctx = document.getElementById("revenueChart").getContext("2d");
-      new Chart(ctx, {
-        type: "bar",
-        data: {
-          labels: data.map((row) => row.month),
-          datasets: [
-            {
-              label: "Revenue ($)",
-              data: data.map((row) => row.total_revenue),
-              backgroundColor: "#2563eb",
-              hoverBackgroundColor: "#1d4ed8",
-              borderRadius: 8,
-              borderSkipped: false,
-            },
-          ],
-        },
-        options: {
-          responsive: true,
-          maintainAspectRatio: false,
-          plugins: {
-            legend: { display: false },
-            tooltip: {
-              backgroundColor: "#1e293b",
-              padding: 12,
-              titleFont: { size: 14 },
-              bodyFont: { size: 14 },
-            },
-          },
-          scales: {
-            y: {
-              beginAtZero: true,
-              grid: { color: "#e2e8f0" },
-              ticks: { callback: (value) => "$" + value },
-            },
-            x: {
-              grid: { display: false },
-            },
-          },
-        },
-      });
-    } catch (error) {
-      console.error("Error loading chart data:", error);
-    }
-  }
-
-  // Initialize once DOM is ready
-  document.addEventListener("DOMContentLoaded", loadCharts);
-</script>
+<script src="/js/analytics.js"></script>
 
 <%- include('partials/footer') %>

@@ -1,0 +1,43 @@
+<%- include('partials/header') %>
+
+<main class="container">
+  <div class="page-header">
+    <h1>Patient History</h1>
+    <a href="/patients" class="btn btn-secondary">← Back to Patients</a>
+  </div>
+
+  <% if (history && history.length > 0) { %>
+  <section class="card table-container">
+    <table>
+      <thead>
+        <tr>
+          <th>Date</th>
+          <th>Doctor</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% history.forEach(item => { %>
+        <tr>
+          <td><%= new Date(item.appointment_date).toLocaleDateString() %></td>
+          <td>
+            Dr. <%= item.doc_fname ? item.doc_fname + " " + item.doc_lname :
+            "N/A" %>
+          </td>
+          <td>
+            <span class="status-pill bg-primary"> <%= item.status %> </span>
+          </td>
+        </tr>
+        <% }) %>
+      </tbody>
+    </table>
+  </section>
+  <% } else { %>
+  <div class="card empty-state">
+    <div style="font-size: 2rem; margin-bottom: 0.5rem">🗂️</div>
+    <div>No appointment history available yet.</div>
+  </div>
+  <% } %>
+</main>
+
+<%- include('partials/footer') %>

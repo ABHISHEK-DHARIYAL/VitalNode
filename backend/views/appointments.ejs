@@ -1,7 +1,9 @@
 <%- include('partials/header') %>
 
+<link rel="stylesheet" href="/css/appointments.css" />
+
 <main class="container">
-  <div class="page-header">
+  <div class="appointment-header">
     <h1>Appointment Scheduling</h1>
     <button
       class="btn-primary"
@@ -27,8 +29,11 @@
         appointments.forEach(app => { %>
         <tr>
           <td><%= new Date(app.appointment_date).toLocaleString() %></td>
-          <td><%= app.first_name %> <%= app.last_name %></td>
-          <td>Dr. <%= app.doctor_name %></td>
+
+          <td><%= app.patient_fname %> <%= app.patient_lname %></td>
+
+          <td>Dr. <%= app.doctor_fname %> <%= app.doctor_lname %></td>
+
           <td><%= app.reason %></td>
           <td><span class="status-pill bg-success"><%= app.status %></span></td>
         </tr>
@@ -78,11 +83,17 @@
         name="appointment_date"
         required
       /><br /><br />
-      <textarea name="reason" placeholder="Reason for visit"></textarea
-      ><br /><br />
-      <button type="submit" class="btn-primary">Confirm Booking</button>
+      <textarea
+        name="reason"
+        class="appointment-reason"
+        placeholder="Reason for visit"
+      ></textarea>
+      <br /><br />
+      <button type="submit" class="btn-confirm">Confirm Booking</button>
+
       <button
         type="button"
+        class="btn-cancel"
         onclick="document.getElementById('appointmentModal').style.display='none'"
       >
         Cancel

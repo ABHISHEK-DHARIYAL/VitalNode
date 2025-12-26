@@ -7,12 +7,23 @@ const pdfController = require("../controllers/pdfController");
 router.get("/", async (req, res) => {
   try {
     const [rows] = await db.query(`
-            SELECT b.*, p.first_name, p.last_name 
-            FROM billing b 
-            JOIN patients p ON b.patient_id = p.patient_id
-        `);
+      SELECT
+        b.bill_id,
+        b.amount,
+        b.status,
+        b.date_issued,
+
+        p.first_name AS patient_fname,
+        p.last_name  AS patient_lname
+
+      FROM billing b
+      JOIN patients p ON b.patient_id = p.patient_id
+      ORDER BY b.date_issued DESC
+    `);
+
     res.render("billing", { bills: rows });
   } catch (err) {
+    console.error(err);
     res.status(500).send("Error fetching bills");
   }
 });

@@ -1,0 +1,219 @@
+/* =========================
+   DOCTORS PAGE
+========================= */
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+/* Doctor Card */
+.doctor-card {
+  padding: 1.75rem 1.5rem;
+  text-align: center;
+  background: linear-gradient(
+    180deg,
+    rgba(59, 130, 246, 0.08),
+    rgba(15, 23, 42, 0.95)
+  );
+  border: 1px solid rgba(59, 130, 246, 0.25);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+/* Hover */
+.doctor-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 18px 40px rgba(59, 130, 246, 0.35);
+}
+
+/* Avatar */
+.doctor-card .avatar {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  margin: 0 auto 0.75rem;
+  background: radial-gradient(circle at top left, #3b82f6, #1e293b);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #e5e7eb;
+  font-weight: 700;
+  font-size: 1.2rem;
+}
+
+/* Doctor Name */
+.doctor-card h3 {
+  margin: 0.25rem 0;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--gray-900);
+}
+
+/* Specialization */
+.doctor-card p {
+  margin: 0.25rem 0 0.6rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #93c5fd; /* soft blue */
+  letter-spacing: 0.3px;
+}
+
+/* Doctor ID */
+.doctor-card small {
+  font-size: 0.7rem;
+  color: var(--gray-500);
+}
+/* Contact Info */
+.doctor-card .contact-info {
+  margin-top: 0.75rem;
+  font-size: 0.8rem;
+  color: var(--gray-700);
+}
+.doctor-card .contact-info a {
+  color: var(--blue-600);
+  text-decoration: none;
+}
+.doctor-card .contact-info a:hover {
+  text-decoration: underline;
+}
+/* Responsive Adjustments */
+@media (max-width: 600px) {
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+}
+@media (min-width: 601px) and (max-width: 900px) {
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (min-width: 901px) and (max-width: 1200px) {
+  .stats-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+@media (min-width: 1201px) {
+  .stats-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* =========================
+   DOCTOR TEXT STYLES
+========================= */
+
+/* =========================
+   DOCTOR CARD (NO AVATAR)
+========================= */
+
+.doctor-card {
+  position: relative;
+  padding: 1.75rem 1.5rem;
+  text-align: center;
+  background: linear-gradient(
+    180deg,
+    rgba(59, 130, 246, 0.06),
+    rgba(15, 23, 42, 0.96)
+  );
+  border: 1px solid rgba(59, 130, 246, 0.25);
+  border-radius: 14px;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+/* Top Accent Bar */
+.doctor-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 4px;
+  width: 100%;
+  background: linear-gradient(90deg, #3b82f6, #2563eb);
+  border-radius: 14px 14px 0 0;
+}
+
+/* Hover */
+.doctor-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 18px 40px rgba(59, 130, 246, 0.35);
+}
+
+/* =========================
+   DOCTOR PATIENT COUNT
+========================= */
+
+/* Doctor Name */
+.doctor-name {
+  margin: 0.25rem 0;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #e5e7eb; /* light text */
+}
+
+/* Specialization */
+.doctor-specialization {
+  margin: 0.25rem 0 0.5rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #93c5fd; /* soft blue */
+}
+
+/* Total Patients */
+.doctor-patient-count {
+  margin: 0.5rem 0;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #a7f3d0; /* mint green – very visible */
+  background: rgba(16, 185, 129, 0.12);
+  padding: 0.35rem 0.6rem;
+  border-radius: 999px;
+  display: inline-block;
+}
+
+/* Doctor ID */
+.doctor-id {
+  margin-top: 0.4rem;
+  font-size: 1rem;
+  font-weight: 500;
+  color: #9ca3af;
+}
+
+.doctor-patient-count {
+  display: inline-block;
+  margin-top: 0.5rem;
+  color: #93c5fd;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.empty-state {
+  padding: 2rem;
+  text-align: center;
+  color: #e5e7eb;
+}
+
+/* Patients count header card */
+.doctor-patient h3 {
+  margin: 0;
+  padding: 1rem;
+
+  text-align: center;
+
+  font-size: 1.1rem;
+  font-weight: 700;
+  letter-spacing: 0.4px;
+
+  color: #e5e7eb; /* light text for dark bg */
+}
+
+/* Optional: make the card itself stand out */
+.doctor-patient {
+  background: linear-gradient(
+    135deg,
+    rgba(59, 130, 246, 0.15),
+    rgba(15, 23, 42, 0.95)
+  );
+  border: 1px solid rgba(59, 130, 246, 0.35);
+}

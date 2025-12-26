@@ -1,0 +1,48 @@
+/* Billing page title */
+.container h1 {
+  color: #f1f5f9; /* very light */
+  font-weight: 800;
+  letter-spacing: 0.4px;
+}
+
+/* Table header text */
+table thead th {
+  color: #c7d2fe; /* soft light blue */
+  font-weight: 700;
+  font-size: 0.75rem;
+  letter-spacing: 0.4px;
+}
+
+/* Table body text */
+table tbody td {
+  color: #e5e7eb; /* light grey */
+  font-size: 0.8rem;
+}
+
+/* Patient name slightly brighter */
+table tbody td:nth-child(2) {
+  color: #f8fafc;
+  font-weight: 600;
+}
+
+/* Amount column */
+table tbody td:nth-child(3) {
+  color: #bae6fd; /* soft cyan */
+  font-weight: 700;
+}
+
+/* Bill ID */
+table tbody td:first-child {
+  color: #cbd5f5;
+  font-weight: 600;
+}
+
+/* Download link */
+table a.btn-secondary {
+  color: #93c5fd;
+}
+
+table a.btn-secondary:hover {
+  color: #bfdbfe;
+  text-decoration: underline;
+}

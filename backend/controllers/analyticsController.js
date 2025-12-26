@@ -3,6 +3,7 @@ const db = require("../db/db");
 // 1. Dashboard Logic (The KPI cards and Today's List)
 exports.getDashboardStats = async (req, res) => {
   try {
+    // Fetch various stats from the database
     const [patients] = await db.query("SELECT COUNT(*) as total FROM patients");
     const [doctors] = await db.query("SELECT COUNT(*) as total FROM doctors");
     const [appointmentsCount] = await db.query(

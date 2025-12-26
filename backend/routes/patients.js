@@ -48,4 +48,32 @@ router.get("/search", async (req, res) => {
   }
 });
 
+router.get("/:id/history", async (req, res) => {
+  try {
+    const patientId = req.params.id;
+
+    const [history] = await db.query(
+      `
+      SELECT
+        a.appointment_date,
+        a.reason,
+        a.status,
+        d.first_name AS doc_fname,
+        d.last_name AS doc_lname
+      FROM appointments a
+      LEFT JOIN doctors d
+        ON a.doctor_id = d.doctor_id
+      WHERE a.patient_id = ?
+      ORDER BY a.appointment_date DESC
+      `,
+      [patientId]
+    );
+
+    res.render("patientHistory", { history });
+  } catch (err) {
+    console.error("Error loading patient history:", err);
+    res.status(500).send("Error loading patient history");
+  }
+});
+
 module.exports = router;
