@@ -62,6 +62,10 @@ VitalNode is fully responsive and optimized for both Android and iOS devices:
 
 ### 1. Clone the repository
 ```bash
+node -v
+npm -v
+mysql --version
 git clone [https://github.com/ABHISHEK-DHARIYAL/VitalNode.git](https://github.com/ABHISHEK-DHARIYAL/VitalNode.git)
 cd VitalNode/backend
+npm install
 npm run dev
